@@ -1,4 +1,4 @@
-# This shows how you can map a azure storage container to a Linux VM - on Azure or anywhere. Run the following in a script
+# Map an azure storage container to a Linux VM. Pre-requistes is blobfuse package.
 
 ```
 # /usr/bin/bash
