@@ -1,5 +1,6 @@
 # This shows how you can map a azure storage container to a Linux VM - on Azure or anywhere. Run the following in a script
 
+```
 # /usr/bin/bash
 
 # Make a blobffuse file - to map to azure blob from https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-mount-container-linux
@@ -27,3 +28,4 @@ export AZURE_STORAGE_ACCESS_KEY=<storage-account-key>
 
 sudo blobfuse /data/azure-blob-container --tmp-path=/mnt/resource/blobfusetmp  --container-name=<container-name> -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
 
+```
