@@ -1,4 +1,4 @@
-# Map an azure storage container to a Linux VM. Pre-requistes is blobfuse package.
+# Map an azure blob ontainer to a Linux VM. Pre-requistes is blobfuse package.
 
 ```
 # /usr/bin/bash
