@@ -1,6 +1,7 @@
-Map an azure storage blob container to a Linux VM. On prem, any cloude or from my favourite [WSL2!](https://docs.microsoft.com/en-us/windows/wsl/)
-Make a blobffuse temporary file for improved performance following [this](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-mount-container-linux)
-In Azure VM, /mnt is on ephemeral disk so you have to run this on every reboot. Fill up your unux user and group below.
+Map an azure storage blob container to a Linux VM. On prem, any cloude or from my favourite [WSL2!](https://docs.microsoft.com/en-us/windows/wsl/).
+
+First make a blobfuse temporary file for improved performance following [this](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-mount-container-linux) instruction.
+Remember i Azure VM, /mnt is on ephemeral disk so you have to run this on every reboot. Fill up your unux user and group below.
 
 
 ```
