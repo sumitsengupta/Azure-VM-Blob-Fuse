@@ -1,10 +1,10 @@
-# Map an azure blob ontainer to a Linux VM. Pre-requistes is blobfuse package.
+# Map an azure storage blob container to a Linux VM 
 
 ```
-# /usr/bin/bash
+/usr/bin/bash
 
-# Make a blobffuse file - to map to azure blob from https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-mount-container-linux
-# One time setup only.  Create a temporary directory for Blobfuse.  In Azure VM, the /mnt is on ephemeral disk so you have to do it on every reboot.
+# Make a blobffuse temporary file for improved performance following [this](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-mount-container-linux)
+# In Azure VM, /mnt is on ephemeral disk so you have to run this on every reboot. Fill up your unux user and group below.
 
 if ! [[ -d  /mnt/resource/blobfusetmp ]] ;
 then
@@ -12,20 +12,20 @@ then
   sudo chown <unix-user>:<unix-group> /mnt/resource/blobfusetmp
 fi
 
-# Create the directory where you want the blob container to be mounted on your linux host
+# Create the directory where you want the blob container to be mounted on your linux host. 
 
  if ! [[ -d /data/azure-blob-container ]] ; then sudo mkdir/data/azure-blob-container   ; fi
 
-# Ensure that the fuse_connection.cfg has the right blob account, container, key. Alternately you can specify on mount option - https://github.com/Azure/azure-storage-fuse
+# Ensure that the fuse_connection.cfg file has the right blob account, container, key. There is a boat load of [mount](https://github.com/Azure/azure-storage-fuse) options.
 
-
-# The storage account be specified here or use a seperate config file -  directory needs to be empty  or use additional option -o noempty
-
-export AZURE_STORAGE_ACCOUNT=<storage-account-name>
-export AZURE_STORAGE_ACCESS_KEY=<storage-account-key>
-
-# export AZURE_STORAGE_SAS_TOKEN=<storage-sas-token>      -- if not using key
 
 sudo blobfuse /data/azure-blob-container --tmp-path=/mnt/resource/blobfusetmp  --container-name=<container-name> -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
 
+#Alternately you could specify it all here
+
+#export AZURE_STORAGE_ACCOUNT=sqlseries
+#export AZURE_STORAGE_ACCESS_KEY=
+#export AZURE_STORAGE_SAS_TOKEN=
+#sudo blobfuse /data/azure-blob-container --tmp-path=/mnt/resource/blobfusetmp  --container-name=ocpdump-postgres -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
 ```
+
