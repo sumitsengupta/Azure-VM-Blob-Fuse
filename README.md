@@ -17,7 +17,7 @@ fi
  if ! [[ -d /data/azure-blob-container ]] ; then sudo mkdir/data/azure-blob-container   ; fi
 ```
 
-Ensure that the fuse_connection.cfg file has the right blob account, container, key. There is a boat load of [mount](https://github.com/Azure/azure-storage-fuse) options.
+Ensure that the [config file](./fuse_connection.cfg) has the right blob account, container, key. There is a boat load of [mount](https://github.com/Azure/azure-storage-fuse) options.
 
 ```
 sudo blobfuse /data/azure-blob-container --tmp-path=/mnt/resource/blobfusetmp  --container-name=<container-name> -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
