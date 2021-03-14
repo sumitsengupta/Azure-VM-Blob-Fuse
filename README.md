@@ -4,7 +4,8 @@ The first requirement is to have [blobfuse](https://github.com/Azure/azure-stora
 
 Once it is installed, optional but recommended is to create a blobfuse temporary file for improved performance following [this](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-mount-container-linux) instruction. 
 
-Remember in Azure VM, /mnt is on ephemeral disk so you have to run this on every reboot. Fill up your unux user and group below.
+Remember in Azure VM, /mnt is on ephemeral disk so you have to run this on every reboot - manually or part of system start up. 
+In the script below, fill up your unix user and group name.
 
 
 ```
