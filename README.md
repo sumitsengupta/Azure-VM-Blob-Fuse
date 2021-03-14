@@ -22,7 +22,7 @@ fi
 Ensure that the [config file](./fuse_connection.cfg) has the right blob account, container, key. There is a boat load of additional [mount](https://github.com/Azure/azure-storage-fuse) options.
 
 ```
-sudo blobfuse /data/azure-blob-container --tmp-path=/mnt/resource/blobfusetmp  --container-name=<container-name> -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
+blobfuse /data/azure-blob-container --tmp-path=/mnt/resource/blobfusetmp  --container-name=<container-name> -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
 
 #Alternately you could specify it all here
 
@@ -31,4 +31,13 @@ sudo blobfuse /data/azure-blob-container --tmp-path=/mnt/resource/blobfusetmp  -
 #export AZURE_STORAGE_SAS_TOKEN=
 #sudo blobfuse /data/azure-blob-container --tmp-path=/mnt/resource/blobfusetmp  --container-name=ocpdump-postgres -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
 ```
+
+Finally to unmount the filesystem - regular way
+
+```
+umount blobfuse
+unmout /data/azure-blob-container
+
+```
+
 
