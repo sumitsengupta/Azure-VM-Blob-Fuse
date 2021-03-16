@@ -1,4 +1,4 @@
-Map an azure storage blob container to a Linux VM. On prem, any cloude or from my favourite [WSL2!](https://docs.microsoft.com/en-us/windows/wsl/).
+***Map an azure storage blob container to a Linux VM. On prem, any cloud or from my favourite [WSL2!](https://docs.microsoft.com/en-us/windows/wsl/).***
 
 The first requirement is to have [blobfuse](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation)  installed on your Linux OS. 
 
