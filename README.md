@@ -26,8 +26,12 @@ fi
 
 Ensure that the [config file](./fuse_connection.cfg) has the right blob account, container, key. There is a boat load of additional [mount](https://github.com/Azure/azure-storage-fuse) options.
 
+To mount the filesystem, notice you can mount in user mode using the config file. Another option is to put the config file here either in variables or parameters
+
 ```
-blobfuse /data/azure-blob-container --tmp-path=/mnt/resource/blobfusetmp  --container-name=<container-name> -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
+
+blobfuse /data/azure-blob-container --tmp-path=/mnt/resource/blobfusetmp --config-file=./fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120 -o nonempty
+
 
 #Alternately you could specify it all here
 
@@ -37,7 +41,7 @@ blobfuse /data/azure-blob-container --tmp-path=/mnt/resource/blobfusetmp  --cont
 #sudo blobfuse /data/azure-blob-container --tmp-path=/mnt/resource/blobfusetmp  --container-name=ocpdump-postgres -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
 ```
 
-Finally to unmount the filesystem - regular way
+Finally if you need to unmount the filesystem - regular way - either of these works
 
 ```
 umount blobfuse
