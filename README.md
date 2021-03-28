@@ -44,8 +44,9 @@ blobfuse /data/azure-blob-container --tmp-path=/mnt/resource/blobfusetmp --confi
 Finally if you need to unmount the filesystem - regular way - either of these works
 
 ```
-umount blobfuse
-unmout /data/azure-blob-container
+
+umount /data/azure-blob-container
+# Alternately run --> sudo  umount blobfuse
 
 ```
 
