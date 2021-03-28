@@ -49,4 +49,4 @@ unmout /data/azure-blob-container
 
 ```
 
-
+In the next step, you can mount an AWS S3 bucket or Google cloud storage to your OS.
