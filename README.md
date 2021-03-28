@@ -1,6 +1,9 @@
 ***Map an azure storage blob container to a Linux VM. On prem, any cloud or from my favourite [WSL2!](https://docs.microsoft.com/en-us/windows/wsl/).***
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 
+*TL;DR - No time to read this and just want a shell script to do it all for you ? Here is a sample [script](./mount_azure_blobfuse.sh )
+
+If you have a few minutes, read on.
 
 The first requirement is to have [blobfuse](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation)  installed on your Linux OS. 
 
@@ -24,7 +27,7 @@ fi
  if ! [[ -d /data/azure-blob-container ]] ; then sudo mkdir/data/azure-blob-container   ; fi
 ```
 
-Ensure that the [config file](./fuse_connection.cfg) has the right blob account, container, key. There is a boat load of additional [mount](https://github.com/Azure/azure-storage-fuse) options.
+Ensure that the [config file](./.fuse_connection.cfg) has the right blob account, container, key. There is a boat load of additional [mount](https://github.com/Azure/azure-storage-fuse) options.
 
 To mount the filesystem, notice you can mount in user mode using the config file. Another option is to put the config file here either in variables or parameters
 
