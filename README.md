@@ -1,7 +1,7 @@
 ***Map an azure storage blob container to a Linux VM. On prem, any cloud or from my favourite [WSL2!](https://docs.microsoft.com/en-us/windows/wsl/).***
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 
-*TL;DR - No time to read this and just want a shell script to do it all for you ? Here is a sample [script](./mount_azure_blobfuse.sh )
+**TL;DR - No time to read this and just want a shell script to do it all for you ? Here is a sample [script](./mount_azure_blobfuse.sh )
 
 If you have a few minutes, read on.
 
